@@ -22,7 +22,7 @@ function beyond(num) {
 function decode(encodedWord) {
 
   let char;
-  switch(encodedWord[0]) {
+  switch (encodedWord[0]) {
     case 'a':
       char = encodedWord[1];
       break;
@@ -45,6 +45,38 @@ function decode(encodedWord) {
 
 let words = 'craft block argon meter bells brown croon droop';
 let listOfWords = words.split(" ");
-for (let i=0; i<listOfWords.length; i++) {
+for (let i = 0; i < listOfWords.length; i++) {
   console.log(decode(listOfWords[i]));
 }
+
+function daysInMonth(month, leapYear = false) {
+  switch (month) {
+    case 'January':
+    case 'March':
+    case 'May':
+    case 'July':
+    case 'August':
+    case 'October':
+    case 'December':
+      return `${month} has 31 days.`;
+      break;
+    case 'February': {
+      if (leapYear) {
+        return 'February has 29 days.';
+      } else {
+        return 'February has 28 days.';
+      }
+      break;
+    }
+    case 'April':
+    case 'June':
+    case 'September':
+    case 'November':
+      return `${month} has 30 days.`;
+      break;
+    default:
+      return 'Must provide a valid month.';
+  }
+}
+
+console.log(daysInMonth('January'));
