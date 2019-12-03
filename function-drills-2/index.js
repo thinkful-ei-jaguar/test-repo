@@ -80,3 +80,4 @@ function daysInMonth(month, leapYear = false) {
 }
 
 console.log(daysInMonth('January'));
+
