@@ -9,7 +9,7 @@ console.log(jediName('nghi', 'tran'));
 
 function beyond(num) {
   if (Number.isFinite(num) && num > 0) {
-    console.log("To infinity");
+    console.log('To infinity');
   } else if (Number.isFinite(num) && num < 0) {
     console.log('To negative inifinity');
   } else if (num === 0) {
@@ -44,7 +44,7 @@ function decode(encodedWord) {
 }
 
 let words = 'craft block argon meter bells brown croon droop';
-let listOfWords = words.split(" ");
+let listOfWords = words.split(' ');
 for (let i = 0; i < listOfWords.length; i++) {
   console.log(decode(listOfWords[i]));
 }
@@ -81,3 +81,36 @@ function daysInMonth(month, leapYear = false) {
 
 console.log(daysInMonth('January'));
 
+
+function game(num) {
+  // 1 is rock
+  // 2 is paper
+  // 3 is scissors
+  if (num !== 1 && num && 2 && num !== 3) {
+    throw new Error('Not a valid number.');
+  }
+  const randomNo = Math.floor(Math.random() * 3) + 1;
+  let result;
+
+  switch (num, randomNo) {
+    case (1, 3):
+    case (3, 2):
+    case (2, 1):
+      result = 'Player 1 wins';
+      break;
+    case (3, 1):
+    case (2, 3):
+    case (1, 2):
+      result = 'Player 2 wins';
+      break;
+    case (1, 1):
+    case (2, 2):
+    case (3, 3):
+      result = 'Its a tie!';
+      break;
+  }
+  return result;
+}
+
+console.log(daysInMonth('January'));
+console.log(game(3));
