@@ -1,7 +1,9 @@
 /* eslint-disable strict */
 
+// Filters through the array
 function filter(arr, fn) {
   let newArray = [];
+
   for (let i=0; i<arr.length; i++){
     if(fn(arr[i]) === true){
       newArray.push(arr[i]);
@@ -64,14 +66,24 @@ rocksWarning('Centinela Ave and Olympic Blvd'); // occurred 3 times
 // Turtle movements
 let turtleMove = [[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]];
 // Filter for positive movements
-console.log(turtleMove.filter(movement => movement[0] > 0 || movement[1] > 0 ));
-// Add movements
-let turtleMove2 = turtleMove.map(movement => movement[0] + movement[1]);
+console.log(turtleMove.filter(movement => movement[0] >= 0 || movement[1] >= 0 ));
+// Add turtle movements in absolute value and return on positives
+let turtleMove2 = turtleMove.map(movement => Math.abs(movement[0]) + Math.abs(movement[1]));
 console.log(turtleMove2);
-// Print out total movements
+
+// Initalize counter to 1
 let count = 1;
+// Print out total movements
 turtleMove.forEach( movement => {
-  console.log(`Movement #${count}: ${movement[0]+movement[1]} steps`);
+  let step = '';
+  // If step is not 1, then print it as steps
+  if (count === 1) {
+      step = 'step';
+  }
+  else {
+      step = 'steps';
+  }
+    console.log(`Movement #${count}: ${Math.abs(movement[0]+movement[1])} ${step}`);
   count++;
 });
 
